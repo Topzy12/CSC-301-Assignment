@@ -1,0 +1,15 @@
+numbers = [42, 17, 89, 5]
+
+print("Original list:", numbers)
+
+numbers.insert(2, 50)
+print("After insert(2, 50):", numbers)
+
+numbers.sort()
+print("After sort():", numbers)
+
+removed = numbers.pop()
+print(f"After pop() (removed {removed}):", numbers)
+
+numbers.remove(17)
+print("After removing 17:", numbers)
