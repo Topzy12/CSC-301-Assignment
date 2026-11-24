@@ -1,0 +1,58 @@
+class Stack:
+    def __init__(self, limit=3):
+        self.items = []
+        self.limit = limit
+
+    def push(self, value):
+        if len(self.items) == self.limit:
+            print(f"Stack overflow: cannot push {value}")
+            return False
+
+        self.items.append(value)
+        print(f"Pushed: {value}")
+        return True
+
+    def pop(self):
+        if not self.items:
+            print("Stack underflow: cannot pop from an empty stack")
+            return None
+
+        value = self.items.pop()
+        print(f"Popped: {value}")
+        return value
+
+    def peek(self):
+        if not self.items:
+            print("Stack is empty")
+            return None
+        return self.items[-1]
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def is_full(self):
+        return len(self.items) >= self.limit
+
+    def size(self):
+        return len(self.items)
+
+
+stack = Stack(limit=3)
+
+print("Is empty?:", stack.is_empty())
+
+stack.push(10)
+stack.push(20)
+stack.push(30)
+
+print("Is full?:", stack.is_full())
+print("Current size:", stack.size())
+print("Peek top item:", stack.peek())
+
+stack.push(40)
+stack.pop()
+print("Peek after one pop:", stack.peek())
+
+stack.pop()
+stack.pop()
+stack.pop()
